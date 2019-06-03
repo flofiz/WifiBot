@@ -52,7 +52,7 @@ void MyRobot::disconnected() {
 }
 
 void MyRobot::bytesWritten(qint64 bytes) {
-    //qDebug() << bytes << " bytes written...";
+    qDebug() << bytes << " bytes written...";
 }
 
 void MyRobot::readyRead() {
@@ -78,10 +78,11 @@ void MyRobot::avancer()
     short crc = Crc16(&DataToSend,6);
     DataToSend[7] = char(crc);
     DataToSend[8] = char(crc >> 8);
+    qDebug() << crc;
 }
 
 short MyRobot::Crc16(QByteArray* Adresse_tab, unsigned char tailleMax){
-    const unsigned char *data = ((unsigned char*)Adresse_tab->constData())+1;
+    const unsigned char *data = ((const unsigned char*)Adresse_tab->constData())+1;
     unsigned int crc = 0xFFFF;
     unsigned int Polynome = 0xA001;
     unsigned int Parity = 0;
@@ -98,4 +99,15 @@ short MyRobot::Crc16(QByteArray* Adresse_tab, unsigned char tailleMax){
         }
     }
     return crc;
+}
+
+void MyRobot::stop()
+{
+    DataToSend[2] = 0x0;
+    DataToSend[4] = 0x0;
+    DataToSend[6] = 0x0;
+    short crc = Crc16(&DataToSend,6);
+    DataToSend[7] = char(crc);
+    DataToSend[8] = char(crc >> 8);
+    qDebug() << crc;
 }

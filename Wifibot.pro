@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        data.cpp \
         main.cpp \
         mainwindow.cpp \
         myrobot.cpp
 
 HEADERS += \
+        data.h \
         mainwindow.h \
         myrobot.h
 

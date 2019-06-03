@@ -6,6 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     robot = new MyRobot();
+    //connect(robot,SIGNAL(updateUI()),this->ui,SLOT(updateLablel()));
     ui->setupUi(this);
 }
 
@@ -20,7 +21,11 @@ MainWindow::~MainWindow()
     delete robot;
 }
 
-void MainWindow::on_avancer_clicked()
+void MainWindow::updateLabel(QString text){
+    ui->Speed->setText(text);
+}
+
+void MainWindow::on_avancer_pressed()
 {
     robot->avancer();
 }
@@ -33,4 +38,14 @@ void MainWindow::on_connecter_clicked()
 void MainWindow::on_disconnect_clicked()
 {
     robot->disConnect();
+}
+
+void MainWindow::on_Stop_clicked()
+{
+    robot->stop();
+}
+
+void MainWindow::on_avancer_released()
+{
+    robot->stop();
 }

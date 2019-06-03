@@ -17,11 +17,17 @@ public:
     void setRobot(MyRobot* robot);
 
 private slots:
-    void on_avancer_clicked();
+    void on_avancer_pressed();
 
     void on_connecter_clicked();
 
     void on_disconnect_clicked();
+
+    void on_Stop_clicked();
+
+    void on_avancer_released();
+
+    void updateLabel(QString text);
 
 private:
     Ui::MainWindow *ui;
