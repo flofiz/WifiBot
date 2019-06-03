@@ -75,23 +75,23 @@ void MyRobot::avancer()
     DataToSend[2] = 0x78;
     DataToSend[4] = 0x78;
     DataToSend[6] = 0x50;
-    unsigned int crc = Crc16(&DataToSend);
+    short crc = Crc16(&DataToSend,6);
     DataToSend[7] = char(crc);
-    DataToSend[8] = char(crc>>8);
+    DataToSend[8] = char(crc >> 8);
 }
 
-unsigned int MyRobot::Crc16(QByteArray* Adresse_tab){
-    unsigned char *data = (unsigned char*)Adresse_tab->constData();
+short MyRobot::Crc16(QByteArray* Adresse_tab, unsigned char tailleMax){
+    const unsigned char *data = ((unsigned char*)Adresse_tab->constData())+1;
     unsigned int crc = 0xFFFF;
     unsigned int Polynome = 0xA001;
-    unsigned int CptOctet = 0;
-    unsigned int CptBit = 0;
     unsigned int Parity = 0;
+    crc = 0xFFFF;
+    Polynome = 0xA001;
 
-    for(CptOctet = 0; CptOctet < Adresse_tab->length(); CptOctet++)
+    for(int CptOctet = 0; CptOctet < tailleMax; CptOctet++)
     {
         crc ^= *(data+CptOctet);
-        for (CptBit = 0; CptBit <= 7 ; CptBit++){
+        for (int CptBit = 0; CptBit <= 7 ; CptBit++){
             Parity= crc;
             crc >>= 1;
             if (Parity%2 == true) crc ^= Polynome;
