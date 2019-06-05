@@ -115,6 +115,11 @@ void MyRobot::stop()
     qDebug() << crc;
 }
 
+void MyRobot::Droite()
+{
+
+}
+
 Data* MyRobot::getData()
 {
     return this->data;
