@@ -57,7 +57,7 @@ void MyRobot::bytesWritten(qint64 bytes) {
 }
 
 void MyRobot::readyRead() {
-    //qDebug() << "reading..."; // read the data from the socket
+    qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     data->setSpeed((int)((DataReceived[1] << 8) + DataReceived[0]));
     data->setBatLvl(DataReceived[2]);

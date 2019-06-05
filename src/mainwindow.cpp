@@ -7,10 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     robot = new MyRobot(this);
-    connect(robot,SIGNAL(updateUI(data)),this,SLOT(updateLablelSpeed(data)));
-    connect(robot,SIGNAL(updateUI(data)),this,SLOT(updateLablelBatterie(data)));
+    QObject::connect(robot,SIGNAL(updateUI(Data*)),this,SLOT(updateLabelSpeed(Data*)));
+    QObject::connect(robot,SIGNAL(updateUI(Data*)),this,SLOT(updateLabelBatterie(Data*)));
     ui->setupUi(this);
 }
+
 
 void MainWindow::setRobot(MyRobot* robot)
 {
