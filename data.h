@@ -1,6 +1,7 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include <QByteArray>
 
 class Data
 {
@@ -16,7 +17,6 @@ public:
     void setIR2(unsigned char IR2);
     long getOdometry();
     void setOdometry(long odometry);
-
 private:
     int speed;
     unsigned char batLvl,IR,IR2;

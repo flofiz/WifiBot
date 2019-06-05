@@ -15,6 +15,7 @@ MyRobot::MyRobot(QObject *parent) : QObject(parent) {
     DataToSend[8] = 0x0;
     DataReceived.resize(21);
     TimerEnvoi = new QTimer();
+    data = new Data();
     // setup signal and slot
     connect(TimerEnvoi, SIGNAL(timeout()), this, SLOT(MyTimerSlot())); //Send data to wifibot timer
 }
@@ -52,13 +53,15 @@ void MyRobot::disconnected() {
 }
 
 void MyRobot::bytesWritten(qint64 bytes) {
-    qDebug() << bytes << " bytes written...";
+    //qDebug() << bytes << " bytes written...";
 }
 
 void MyRobot::readyRead() {
     //qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
-    emit updateUI(DataReceived);
+    data->setSpeed((int)((DataReceived[1] << 8) + DataReceived[0]));
+    data->setBatLvl(DataReceived[2]);
+    emit updateUI(data);
     qDebug() << DataReceived[0] << DataReceived[1] << DataReceived[2];
 }
 
@@ -110,4 +113,9 @@ void MyRobot::stop()
     DataToSend[7] = char(crc);
     DataToSend[8] = char(crc >> 8);
     qDebug() << crc;
+}
+
+Data* MyRobot::getData()
+{
+    return this->data;
 }

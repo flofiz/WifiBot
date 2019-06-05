@@ -1,12 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "QtDebug"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-    robot = new MyRobot();
-    //connect(robot,SIGNAL(updateUI()),this->ui,SLOT(updateLablel()));
+    robot = new MyRobot(this);
+    connect(robot,SIGNAL(updateUI(data)),this,SLOT(updateLablelSpeed(data)));
+    connect(robot,SIGNAL(updateUI(data)),this,SLOT(updateLablelBatterie(data)));
     ui->setupUi(this);
 }
 
@@ -21,8 +23,12 @@ MainWindow::~MainWindow()
     delete robot;
 }
 
-void MainWindow::updateLabel(QString text){
-    ui->Speed->setText(text);
+void MainWindow::updateLabelSpeed(Data* data)
+{
+    qDebug() << "speed update";
+    QString str;
+    str.setNum(data->getSpeed());
+    ui->Speed->setText(str);
 }
 
 void MainWindow::on_avancer_pressed()
@@ -49,3 +55,12 @@ void MainWindow::on_avancer_released()
 {
     robot->stop();
 }
+
+void MainWindow::updateLabelBatterie(Data* data)
+{
+    QString str;
+    str.setNum(data->getBatLvl());
+    ui->Batterie->setText(str);
+}
+
+

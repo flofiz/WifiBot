@@ -27,7 +27,9 @@ private slots:
 
     void on_avancer_released();
 
-    void updateLabel(QString text);
+    void updateLabelSpeed(Data* data);
+
+    void updateLabelBatterie(Data* data);
 
 private:
     Ui::MainWindow *ui;

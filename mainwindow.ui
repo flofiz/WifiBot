@@ -67,7 +67,7 @@
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="Batterie">
     <property name="geometry">
      <rect>
       <x>434</x>

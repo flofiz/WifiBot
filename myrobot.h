@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMutex>
+#include "data.h"
 
 class MyRobot : public QObject {
     Q_OBJECT
@@ -17,22 +18,24 @@ public:
     QByteArray DataToSend;
     QByteArray DataReceived;
     QMutex Mutex;
+    Data* getData();
+    void avancer();
+    void stop();
 
 signals:
-    void updateUI(const QByteArray Data);
+    void updateUI(Data* data);
 public slots:
     void connected();
     void disconnected();
     void bytesWritten(qint64 bytes);
     void readyRead();
     void MyTimerSlot();
-    void avancer();
     short Crc16(QByteArray* Adresse_tab, unsigned char tailleMax);
-    void stop();
 
 private:
     QTcpSocket *socket;
     QTimer *TimerEnvoi;
+    Data* data;
 };
 
 #endif // MYROBOT_H

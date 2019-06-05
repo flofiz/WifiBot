@@ -2,7 +2,11 @@
 
 Data::Data()
 {
-
+    setSpeed(0);
+    setIR(0);
+    setIR2(0);
+    setBatLvl(0);
+    setOdometry(0);
 }
 int Data::getSpeed()
 {
