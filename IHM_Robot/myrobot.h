@@ -20,9 +20,9 @@ public:
     QMutex Mutex;
     Data* getData();
     void avancer();
-    void stop();
     void droite();
     void gauche();
+    void stop();
     void reculer();
 
 signals:

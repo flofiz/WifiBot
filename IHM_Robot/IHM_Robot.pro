@@ -1,15 +1,13 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-05-27T21:12:35
+# Project created by QtCreator 2019-05-06T17:06:24
 #
 #-------------------------------------------------
 
-QT       += core gui
-QT       += network
+QT       += core gui widgets\
+            network
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = Wifibot
+TARGET = IHM_Robot
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -33,6 +31,7 @@ SOURCES += \
 
 HEADERS += \
         data.h \
+        main.h \
         mainwindow.h \
         myrobot.h
 
@@ -43,3 +42,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    icon.qrc

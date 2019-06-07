@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>Icons/co.ico</file>
+        <file>Icons/deco.ico</file>
+        <file>Icons/FB.ico</file>
+        <file>Icons/FD.ico</file>
+        <file>Icons/FG.ico</file>
+        <file>Icons/fleche.html</file>
+        <file>Icons/FLH.ico</file>
+    </qresource>
+</RCC>

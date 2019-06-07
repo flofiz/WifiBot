@@ -1,5 +1,3 @@
-// myrobot.cpp
-
 #include "myrobot.h"
 
 MyRobot::MyRobot(QObject *parent) : QObject(parent) {
@@ -29,7 +27,7 @@ void MyRobot::doConnect() {
     connect(socket, SIGNAL(readyRead()),this, SLOT(readyRead()));
     qDebug() << "connecting..."; // this is not blocking call
     //socket->connectToHost("LOCALHOST", 15020);
-    socket->connectToHost("192.168.1.106", 15020); // connection to wifibot
+    socket->connectToHost("192.168.1.11", 15020); // connection to wifibot
     // we need to wait...
     if(!socket->waitForConnected(5000)) {
         qDebug() << "Error: " << socket->errorString();
@@ -57,7 +55,7 @@ void MyRobot::bytesWritten(qint64 bytes) {
 }
 
 void MyRobot::readyRead() {
-    qDebug() << "reading..."; // read the data from the socket
+    //qDebug() << "reading..."; // read the data from the socket
     DataReceived = socket->readAll();
     data->setSpeed((int)((DataReceived[1] << 8) + DataReceived[0]));
     data->setBatLvl(DataReceived[2]);
@@ -78,6 +76,42 @@ void MyRobot::avancer()
     DataToSend[2] = 0x78;
     DataToSend[4] = 0x78;
     DataToSend[6] = 0x50;
+    short crc = Crc16(&DataToSend,6);
+    DataToSend[7] = char(crc);
+    DataToSend[8] = char(crc >> 8);
+    qDebug() << crc;
+}
+
+void MyRobot::gauche()
+{
+    qDebug() << "avancer";
+    DataToSend[2] = 0x78;
+    DataToSend[4] = 0x52;
+    DataToSend[6] = 0x50;
+    short crc = Crc16(&DataToSend,6);
+    DataToSend[7] = char(crc);
+    DataToSend[8] = char(crc >> 8);
+    qDebug() << crc;
+}
+
+void MyRobot::droite()
+{
+    qDebug() << "droite";
+    DataToSend[2] = 0x52;
+    DataToSend[4] = 0x78;
+    DataToSend[6] = 0x50;
+    short crc = Crc16(&DataToSend,6);
+    DataToSend[7] = char(crc);
+    DataToSend[8] = char(crc >> 8);
+    qDebug() << crc;
+}
+
+void MyRobot::reculer()
+{
+    qDebug() << "avancer";
+    DataToSend[2] = 0x78;
+    DataToSend[4] = 0x78;
+    DataToSend[6] = 0x00;
     short crc = Crc16(&DataToSend,6);
     DataToSend[7] = char(crc);
     DataToSend[8] = char(crc >> 8);
@@ -109,42 +143,6 @@ void MyRobot::stop()
     DataToSend[2] = 0x0;
     DataToSend[4] = 0x0;
     DataToSend[6] = 0x0;
-    short crc = Crc16(&DataToSend,6);
-    DataToSend[7] = char(crc);
-    DataToSend[8] = char(crc >> 8);
-    qDebug() << crc;
-}
-
-void MyRobot::droite()
-{
-    qDebug() << "droite";
-    DataToSend[2] = 0x52;
-    DataToSend[4] = 0x78;
-    DataToSend[6] = 0x50;
-    short crc = Crc16(&DataToSend,6);
-    DataToSend[7] = char(crc);
-    DataToSend[8] = char(crc >> 8);
-    qDebug() << crc;
-}
-
-void MyRobot::gauche()
-{
-    qDebug() << "avancer";
-    DataToSend[2] = 0x78;
-    DataToSend[4] = 0x52;
-    DataToSend[6] = 0x50;
-    short crc = Crc16(&DataToSend,6);
-    DataToSend[7] = char(crc);
-    DataToSend[8] = char(crc >> 8);
-    qDebug() << crc;
-}
-
-void MyRobot::reculer()
-{
-    qDebug() << "avancer";
-    DataToSend[2] = 0x78;
-    DataToSend[4] = 0x78;
-    DataToSend[6] = 0x00;
     short crc = Crc16(&DataToSend,6);
     DataToSend[7] = char(crc);
     DataToSend[8] = char(crc >> 8);
