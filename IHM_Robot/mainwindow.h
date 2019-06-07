@@ -18,13 +18,17 @@ public:
     ~MainWindow();
 
 private slots:
+    void on_TopArrow_pressed();
     void on_TopArrow_released();
 
+    void on_RightArrow_pressed();    
     void on_RightArrow_released();
 
+    void on_BotArrow_pressed();
     void on_BotArrow_released();
     //void on_BotArrow_clicked();
 
+    void on_LeftArrow_pressed();
     void on_LeftArrow_released();
 
     void on_power_off_clicked();

@@ -40,6 +40,7 @@ public:
     QFrame *frame;
     QFrame *line;
     QTextEdit *textEdit;
+    QPushButton *Stop;
     QMenuBar *menuBar;
     QMenu *menuHome;
     QMenu *menuVideo;
@@ -63,7 +64,7 @@ public:
         progressBar->setValue(24);
         TopArrow = new QPushButton(centralWidget);
         TopArrow->setObjectName(QString::fromUtf8("TopArrow"));
-        TopArrow->setGeometry(QRect(40, 345, 30, 35));
+        TopArrow->setGeometry(QRect(40, 340, 30, 35));
         TopArrow->setMaximumSize(QSize(30, 40));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icon/Icons/FLH.ico"), QSize(), QIcon::Normal, QIcon::Off);
@@ -71,7 +72,7 @@ public:
         TopArrow->setIconSize(QSize(30, 50));
         LeftArrow = new QPushButton(centralWidget);
         LeftArrow->setObjectName(QString::fromUtf8("LeftArrow"));
-        LeftArrow->setGeometry(QRect(6, 380, 35, 30));
+        LeftArrow->setGeometry(QRect(6, 370, 35, 30));
         LeftArrow->setMaximumSize(QSize(35, 30));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/icon/Icons/FG.ico"), QSize(), QIcon::Normal, QIcon::Off);
@@ -79,7 +80,7 @@ public:
         LeftArrow->setIconSize(QSize(50, 30));
         BotArrow = new QPushButton(centralWidget);
         BotArrow->setObjectName(QString::fromUtf8("BotArrow"));
-        BotArrow->setGeometry(QRect(40, 410, 30, 35));
+        BotArrow->setGeometry(QRect(40, 400, 30, 35));
         BotArrow->setMaximumSize(QSize(30, 40));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/icon/Icons/FB.ico"), QSize(), QIcon::Normal, QIcon::Off);
@@ -87,7 +88,7 @@ public:
         BotArrow->setIconSize(QSize(30, 50));
         RightArrow = new QPushButton(centralWidget);
         RightArrow->setObjectName(QString::fromUtf8("RightArrow"));
-        RightArrow->setGeometry(QRect(70, 380, 35, 30));
+        RightArrow->setGeometry(QRect(70, 370, 35, 30));
         RightArrow->setMaximumSize(QSize(40, 30));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/icon/Icons/FD.ico"), QSize(), QIcon::Normal, QIcon::Off);
@@ -126,11 +127,15 @@ public:
         line->setFrameShadow(QFrame::Sunken);
         textEdit = new QTextEdit(centralWidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(30, 290, 141, 21));
+        textEdit->setGeometry(QRect(30, 290, 221, 31));
+        textEdit->setFrameShape(QFrame::WinPanel);
+        Stop = new QPushButton(centralWidget);
+        Stop->setObjectName(QString::fromUtf8("Stop"));
+        Stop->setGeometry(QRect(310, 290, 31, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 17));
+        menuBar->setGeometry(QRect(0, 0, 400, 24));
         menuHome = new QMenu(menuBar);
         menuHome->setObjectName(QString::fromUtf8("menuHome"));
         menuVideo = new QMenu(menuBar);
@@ -172,9 +177,10 @@ public:
         textEdit->setHtml(QApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#5a5a5a;\">Nintendo</span><span style=\" font-size:11pt;\"> </span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#0000ff;\">G</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#55aa00;\">A</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#ff007f;\">M</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#e31102;\">E</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#ff1202;\">B</span"
-                        "><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#b8b842;\">O</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#aa00ff;\">T</span><span style=\" font-size:20pt; color:#aa00ff;\"> </span><span style=\" font-size:7pt; color:#5a5a5a;\">TM</span></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.14286pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt; color:#5a5a5a;\">Nintendo</span><span style=\" font-size:11pt;\"> </span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#0000ff;\">G</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#55aa00;\">A</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#ff007f;\">M</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#e31102;\">E</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#ff1202;\">B"
+                        "</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#b8b842;\">O</span><span style=\" font-size:11pt; font-weight:600; font-style:italic; color:#aa00ff;\">T</span><span style=\" font-size:20pt; color:#aa00ff;\"> </span><span style=\" font-size:7pt; color:#5a5a5a;\">TM</span></p></body></html>", nullptr));
+        Stop->setText(QApplication::translate("MainWindow", "STOP", nullptr));
         menuHome->setTitle(QApplication::translate("MainWindow", "Home", nullptr));
         menuVideo->setTitle(QApplication::translate("MainWindow", "Video", nullptr));
         menuSensors->setTitle(QApplication::translate("MainWindow", "Sensors", nullptr));

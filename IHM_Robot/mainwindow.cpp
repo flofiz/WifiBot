@@ -33,11 +33,6 @@ void MainWindow::updateLabelSpeed(Data* data)
     //ui->Speed->setText(str);
 }
 
-void MainWindow::on_avancer_released()
-{
-    robot->stop();
-}
-
 void MainWindow::updateLabelBatterie(Data* data)
 {
     QString str;
@@ -45,25 +40,37 @@ void MainWindow::updateLabelBatterie(Data* data)
     //ui->Batterie->setText(str);
 }
 
-void MainWindow::on_TopArrow_released()
+void MainWindow::on_TopArrow_pressed()
 {
     robot->avancer();
 }
+void MainWindow::on_TopArrow_released(){
+    robot->stop();
+}
 
 //void MainWindow::on_RightArrow_clicked()
-void MainWindow::on_RightArrow_released()
+void MainWindow::on_RightArrow_pressed()
 {
     robot->droite();
 }
+void MainWindow::on_RightArrow_released(){
+    robot->stop();
+}
 
-void MainWindow::on_BotArrow_released()
+void MainWindow::on_BotArrow_pressed()
 {
     robot->reculer();
 }
+void MainWindow::on_BotArrow_released(){
+    robot->stop();
+}
 
-void MainWindow::on_LeftArrow_released()
+void MainWindow::on_LeftArrow_pressed()
 {
     robot->gauche();
+}
+void MainWindow::on_LeftArrow_released(){
+    robot->stop();
 }
 
 void MainWindow::on_power_off_clicked()

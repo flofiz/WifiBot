@@ -38,7 +38,8 @@ public slots:
 private:
     QTcpSocket *socket;
     QTimer *TimerEnvoi;
-    Data* data;
+    Data* dataL;
+    Data* dataR;
 };
 
 #endif // MYROBOT_H

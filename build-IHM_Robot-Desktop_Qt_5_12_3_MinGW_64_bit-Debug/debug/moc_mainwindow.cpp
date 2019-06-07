@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[16];
-    char stringdata0[254];
+    QByteArrayData data[20];
+    char stringdata0[341];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,30 +32,36 @@ struct qt_meta_stringdata_MainWindow_t {
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
     {
 QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
-QT_MOC_LITERAL(1, 11, 19), // "on_TopArrow_clicked"
+QT_MOC_LITERAL(1, 11, 19), // "on_TopArrow_pressed"
 QT_MOC_LITERAL(2, 31, 0), // ""
-QT_MOC_LITERAL(3, 32, 21), // "on_RightArrow_clicked"
-QT_MOC_LITERAL(4, 54, 19), // "on_BotArrow_clicked"
-QT_MOC_LITERAL(5, 74, 20), // "on_LeftArrow_clicked"
-QT_MOC_LITERAL(6, 95, 20), // "on_power_off_clicked"
-QT_MOC_LITERAL(7, 116, 19), // "on_power_on_clicked"
-QT_MOC_LITERAL(8, 136, 27), // "on_progressBar_valueChanged"
-QT_MOC_LITERAL(9, 164, 5), // "value"
-QT_MOC_LITERAL(10, 170, 15), // "on_Stop_clicked"
-QT_MOC_LITERAL(11, 186, 19), // "on_avancer_released"
-QT_MOC_LITERAL(12, 206, 16), // "updateLabelSpeed"
-QT_MOC_LITERAL(13, 223, 5), // "Data*"
-QT_MOC_LITERAL(14, 229, 4), // "data"
-QT_MOC_LITERAL(15, 234, 19) // "updateLabelBatterie"
+QT_MOC_LITERAL(3, 32, 20), // "on_TopArrow_released"
+QT_MOC_LITERAL(4, 53, 21), // "on_RightArrow_pressed"
+QT_MOC_LITERAL(5, 75, 22), // "on_RightArrow_released"
+QT_MOC_LITERAL(6, 98, 19), // "on_BotArrow_pressed"
+QT_MOC_LITERAL(7, 118, 20), // "on_BotArrow_released"
+QT_MOC_LITERAL(8, 139, 20), // "on_LeftArrow_pressed"
+QT_MOC_LITERAL(9, 160, 21), // "on_LeftArrow_released"
+QT_MOC_LITERAL(10, 182, 20), // "on_power_off_clicked"
+QT_MOC_LITERAL(11, 203, 19), // "on_power_on_clicked"
+QT_MOC_LITERAL(12, 223, 27), // "on_progressBar_valueChanged"
+QT_MOC_LITERAL(13, 251, 5), // "value"
+QT_MOC_LITERAL(14, 257, 19), // "on_avancer_released"
+QT_MOC_LITERAL(15, 277, 16), // "updateLabelSpeed"
+QT_MOC_LITERAL(16, 294, 5), // "Data*"
+QT_MOC_LITERAL(17, 300, 4), // "data"
+QT_MOC_LITERAL(18, 305, 19), // "updateLabelBatterie"
+QT_MOC_LITERAL(19, 325, 15) // "on_Stop_pressed"
 
     },
-    "MainWindow\0on_TopArrow_clicked\0\0"
-    "on_RightArrow_clicked\0on_BotArrow_clicked\0"
-    "on_LeftArrow_clicked\0on_power_off_clicked\0"
+    "MainWindow\0on_TopArrow_pressed\0\0"
+    "on_TopArrow_released\0on_RightArrow_pressed\0"
+    "on_RightArrow_released\0on_BotArrow_pressed\0"
+    "on_BotArrow_released\0on_LeftArrow_pressed\0"
+    "on_LeftArrow_released\0on_power_off_clicked\0"
     "on_power_on_clicked\0on_progressBar_valueChanged\0"
-    "value\0on_Stop_clicked\0on_avancer_released\0"
-    "updateLabelSpeed\0Data*\0data\0"
-    "updateLabelBatterie"
+    "value\0on_avancer_released\0updateLabelSpeed\0"
+    "Data*\0data\0updateLabelBatterie\0"
+    "on_Stop_pressed"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,7 +71,7 @@ static const uint qt_meta_data_MainWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -73,17 +79,21 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   69,    2, 0x08 /* Private */,
-       3,    0,   70,    2, 0x08 /* Private */,
-       4,    0,   71,    2, 0x08 /* Private */,
-       5,    0,   72,    2, 0x08 /* Private */,
-       6,    0,   73,    2, 0x08 /* Private */,
-       7,    0,   74,    2, 0x08 /* Private */,
-       8,    1,   75,    2, 0x08 /* Private */,
-      10,    0,   78,    2, 0x08 /* Private */,
-      11,    0,   79,    2, 0x08 /* Private */,
-      12,    1,   80,    2, 0x08 /* Private */,
-      15,    1,   83,    2, 0x08 /* Private */,
+       1,    0,   89,    2, 0x08 /* Private */,
+       3,    0,   90,    2, 0x08 /* Private */,
+       4,    0,   91,    2, 0x08 /* Private */,
+       5,    0,   92,    2, 0x08 /* Private */,
+       6,    0,   93,    2, 0x08 /* Private */,
+       7,    0,   94,    2, 0x08 /* Private */,
+       8,    0,   95,    2, 0x08 /* Private */,
+       9,    0,   96,    2, 0x08 /* Private */,
+      10,    0,   97,    2, 0x08 /* Private */,
+      11,    0,   98,    2, 0x08 /* Private */,
+      12,    1,   99,    2, 0x08 /* Private */,
+      14,    0,  102,    2, 0x08 /* Private */,
+      15,    1,  103,    2, 0x08 /* Private */,
+      18,    1,  106,    2, 0x08 /* Private */,
+      19,    0,  109,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -92,11 +102,15 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 13,   14,
-    QMetaType::Void, 0x80000000 | 13,   14,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   13,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -107,17 +121,20 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<MainWindow *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_TopArrow_clicked(); break;
-        case 1: _t->on_RightArrow_clicked(); break;
-        case 2: _t->on_BotArrow_clicked(); break;
-        case 3: _t->on_LeftArrow_clicked(); break;
-        case 4: _t->on_power_off_clicked(); break;
-        case 5: _t->on_power_on_clicked(); break;
-        case 6: _t->on_progressBar_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 7: _t->on_Stop_clicked(); break;
-        case 8: _t->on_avancer_released(); break;
-        case 9: _t->updateLabelSpeed((*reinterpret_cast< Data*(*)>(_a[1]))); break;
-        case 10: _t->updateLabelBatterie((*reinterpret_cast< Data*(*)>(_a[1]))); break;
+        case 0: _t->on_TopArrow_pressed(); break;
+        case 1: _t->on_TopArrow_released(); break;
+        case 2: _t->on_RightArrow_pressed(); break;
+        case 3: _t->on_RightArrow_released(); break;
+        case 4: _t->on_BotArrow_pressed(); break;
+        case 5: _t->on_BotArrow_released(); break;
+        case 6: _t->on_LeftArrow_pressed(); break;
+        case 7: _t->on_LeftArrow_released(); break;
+        case 8: _t->on_power_off_clicked(); break;
+        case 9: _t->on_power_on_clicked(); break;
+        case 10: _t->on_progressBar_valueChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: _t->updateLabelSpeed((*reinterpret_cast< Data*(*)>(_a[1]))); break;
+        case 13: _t->updateLabelBatterie((*reinterpret_cast< Data*(*)>(_a[1]))); break;
+        case 14: _t->on_Stop_pressed(); break;
         default: ;
         }
     }
@@ -152,13 +169,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 15;
     }
     return _id;
 }
