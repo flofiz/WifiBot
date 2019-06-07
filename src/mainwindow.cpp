@@ -1,7 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "myrobot.h"
-#include <QIcon>
 #include "QtDebug"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -9,10 +7,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     robot = new MyRobot(this);
-        connect(robot,SIGNAL(updateUI(data)),this,SLOT(updateLablelSpeed(data)));
-        connect(robot,SIGNAL(updateUI(data)),this,SLOT(updateLablelBatterie(data)));
+    QObject::connect(robot,SIGNAL(updateUI(Data*)),this,SLOT(updateLabelSpeed(Data*)));
+    QObject::connect(robot,SIGNAL(updateUI(Data*)),this,SLOT(updateLabelBatterie(Data*)));
     ui->setupUi(this);
 }
+
 
 void MainWindow::setRobot(MyRobot* robot)
 {
@@ -30,7 +29,22 @@ void MainWindow::updateLabelSpeed(Data* data)
     qDebug() << "speed update";
     QString str;
     str.setNum(data->getSpeed());
-    //ui->Speed->setText(str);
+    ui->Speed->setText(str);
+}
+
+void MainWindow::on_avancer_pressed()
+{
+    robot->avancer();
+}
+
+void MainWindow::on_connecter_clicked()
+{
+    robot->doConnect();
+}
+
+void MainWindow::on_disconnect_clicked()
+{
+    robot->disConnect();
 }
 
 void MainWindow::on_Stop_clicked()
@@ -47,40 +61,7 @@ void MainWindow::updateLabelBatterie(Data* data)
 {
     QString str;
     str.setNum(data->getBatLvl());
-    //ui->Batterie->setText(str);
+    ui->Batterie->setText(str);
 }
 
-void MainWindow::on_TopArrow_clicked()
-{
-    robot->avancer();
-}
 
-void MainWindow::on_RightArrow_clicked()
-{
-
-}
-
-void MainWindow::on_BotArrow_clicked()
-{
-
-}
-
-void MainWindow::on_LeftArrow_clicked()
-{
-
-}
-
-void MainWindow::on_power_off_clicked()
-{
-    robot->disConnect();
-}
-
-void MainWindow::on_power_on_clicked()
-{
-    robot->doConnect();
-}
-
-void MainWindow::on_progressBar_valueChanged(int value)
-{
-
-}

@@ -22,6 +22,8 @@ public:
     void avancer();
     void stop();
     void droite();
+    void gauche();
+    void reculer();
 
 signals:
     void updateUI(Data* data);
@@ -32,9 +34,6 @@ public slots:
     void readyRead();
     void MyTimerSlot();
     short Crc16(QByteArray* Adresse_tab, unsigned char tailleMax);
-    void droite();
-    void gauche();
-    void reculer();
 
 private:
     QTcpSocket *socket;
