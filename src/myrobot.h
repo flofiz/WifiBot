@@ -21,6 +21,7 @@ public:
     Data* getData();
     void avancer();
     void stop();
+    void droite();
 
 signals:
     void updateUI(Data* data);

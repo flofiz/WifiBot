@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "myrobot.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -13,15 +14,23 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
     void setRobot(MyRobot* robot);
+    ~MainWindow();
 
 private slots:
-    void on_avancer_pressed();
+    void on_TopArrow_clicked();
 
-    void on_connecter_clicked();
+    void on_RightArrow_clicked();
 
-    void on_disconnect_clicked();
+    void on_BotArrow_clicked();
+
+    void on_LeftArrow_clicked();
+
+    void on_power_off_clicked();
+
+    void on_power_on_clicked();
+
+    void on_progressBar_valueChanged(int value);
 
     void on_Stop_clicked();
 
